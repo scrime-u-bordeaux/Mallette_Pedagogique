@@ -4,7 +4,7 @@ dispositif pédagogique de sensibilisation aux pratiques instrumentales des musi
 
 liens utiles :  
 - algorithme AHRS (inertiel 6 - 9 axes) https://lucidar.me/fr/inertial-measurement-unit/mpu-9250-and-arduino-9-axis-imu/  
- teensy et capteur ultrason : http://little-scale.blogspot.com/2020/06/teensy-36-with-hc-sr04-distance-sensor.html
+- teensy et capteur ultrason : http://little-scale.blogspot.com/2020/06/teensy-36-with-hc-sr04-distance-sensor.html
 shops :  
 conrad - fournitures elec, capteurs et microcontrôleurs https://www.conrad.fr/o/kits-cartes-microcontroleurs-mcu-2420148  
 robotshop - capteur et microcontrôleurs (teensy LC le moins cher d'europe) : https://www.robotshop.com/eu/fr/platine-developpement-microcontroleur-usb-teensy-lc-avec-broches.html  
