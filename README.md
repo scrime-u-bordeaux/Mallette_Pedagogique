@@ -16,3 +16,5 @@ Liste d'achat:
 - Connecteurs à souder USB type-B (gros) x10  
 - ESP32 avec gestionnaire de charge LiPo  
 - batterie LiPo  
+- BreadBoard sans soudure x3
+-   
