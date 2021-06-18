@@ -32,7 +32,7 @@ void setup()
   Wire.begin(I2C_MASTER, 0x00, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000);
   Wire.setDefaultTimeout(10000); // 10ms
   delay(10);
-  Wire.beginTransmission (0x0D); // Séquence d'initialisation nunchuck2 data non-codées
+  Wire.beginTransmission (0x0D); // 0x0E pour la platine de droite
   Wire.write (0xF0);
   Wire.write (0x55);
   Wire.endTransmission ();
