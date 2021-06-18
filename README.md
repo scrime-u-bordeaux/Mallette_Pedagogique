@@ -22,9 +22,13 @@ et enfin Farnell, composants électroniques , grand catalogue,  prix correct, li
   
 Liste d'achat:   
 - teensy LC x10 https://www.robotshop.com/eu/fr/platine-developpement-microcontroleur-usb-teensy-lc.html  
-- Connecteurs à souder USB type-B (gros) x10  https://www.conrad.fr/p/connecteur-usb-20-type-b-avec-5-cm-de-cable-w824-2-27-2-005-w-p-products-conte-1846224  
+
 - ESP32 avec gestionnaire de charge LiPo https://www.robotshop.com/eu/fr/microcontroleur-ido-firebeetle-esp32.html   
 - batterie LiPo  https://www.robotshop.com/eu/fr/cellule-batterie-lithium-de-polymere-37-v-1200-mah.html  
 - BreadBoard sans soudure x3 https://www.robotshop.com/eu/fr/plaque-essais-sans-soudure-400-points.html  
-- colle chaude 11mm diam. https://www.conrad.fr/p/batons-de-colle-steinel-046910-11-mm-250-mm-40-pcs-2114760  
 - cable usb micro x10 https://www.robotshop.com/eu/fr/cable-usb-microb-6-pieds.html  
+- ...  
+- colle chaude 11mm diam. https://www.conrad.fr/p/batons-de-colle-steinel-046910-11-mm-250-mm-40-pcs-2114760    
+- Connecteurs à souder USB type-B (gros) x10 https://www.conrad.fr/p/connecteur-usb-20-type-b-avec-5-cm-de-cable-w824-2-27-2-005-w-p-products-conte-1846224 
+- tresse à désouder https://www.conrad.fr/p/tresse-a-dessouder-stannol-812078  
+- 
