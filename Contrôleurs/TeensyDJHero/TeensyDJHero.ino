@@ -116,7 +116,7 @@ void loop()
   if (values[20] > 0 && values[21] == 0) {
     Serial.print("Je tourne dans le sens antitrigo à une vitesse de ");
     int val1 = map(values[20],0,90,0,127);
-    val1 = constrain(val1,0,127)-1;
+    val1 = constrain(val1,0,127);
     Serial.print(val1);
     usbMIDI.sendControlChange(62,val1,1);
     Serial.println();
