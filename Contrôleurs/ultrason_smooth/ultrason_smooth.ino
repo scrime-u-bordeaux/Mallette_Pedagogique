@@ -161,7 +161,7 @@ long smooth1(int duration) { /* function smooth */
   // subtract the last reading:
   total1 = total1 - readings1[readIndex1];
   // read the sensor:
-  readings1[readIndex2] = duration;
+  readings1[readIndex1] = duration;
   // add value to total:
   total1 = total1 + readings1[readIndex1];
   // handle index
