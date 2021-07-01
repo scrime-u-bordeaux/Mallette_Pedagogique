@@ -1,4 +1,4 @@
-#define DEBUG
+//#define DEBUG
 
 // Attention l'un des theremin possède les trigPin et echoPin inversés (1,0 et 19,18);
 int trigPin1 = 0;    // Trigger
