@@ -1,7 +1,8 @@
 #define DEBUG
 
+// Attention l'un des theremin possède les trigPin et echoPin inversés (1,0 et 19,18);
 int trigPin1 = 0;    // Trigger
-int echoPin1 = 2;    // Echo
+int echoPin1 = 1;    // Echo
 long duration1, cm1, inches1;
 
 int trigPin2 = 18;    // Trigger
@@ -25,9 +26,7 @@ int readIndex2  = 0;
 long total2  = 0;
 
 void setup() {
-  //Serial Port begin
   Serial.begin (9600);
-  //Define inputs and outputs
   pinMode(trigPin1, OUTPUT);
   pinMode(echoPin1, INPUT);
 
@@ -58,40 +57,13 @@ void loop() {
   duration2 = pulseIn(echoPin2, HIGH, 4000);
   int duree2 = 2*smooth2(duration2);
 
-  // Convert the time into a distance
-  cm1 = (duration1 / 2) / 29.1;   // Divide by 29.1 or multiply by 0.0343
-  inches1 = (duration1 / 2) / 74; // Divide by 74 or multiply by 0.0135
-
-  cm2 = (duration2 / 2) / 29.1;   // Divide by 29.1 or multiply by 0.0343
-  inches2 = (duration2 / 2) / 74; // Divide by 74 or multiply by 0.0135
-
 #ifdef DEBUG
-//  Serial.print("Durée 1 brut : ");
-//  Serial.print(duration1);
-//  Serial.print("\t");
   Serial.print("Durée 1 smooth : ");
   Serial.print(duree1);
   Serial.print("\t");
-  /*
-    Serial.print(inches1);
-    Serial.print("in, ");
-    Serial.print(cm1);
-    Serial.print("cm");
-    Serial.println();
-  */
-//  Serial.print("Durée 2 brut : ");
-//  Serial.print(duration2);
-//  Serial.print("\t");
   Serial.print("Durée 2 smooth : ");
   Serial.print(duree2);
   Serial.print("\t");
-  /*
-  Serial.print(inches2);
-  Serial.print("in, ");
-  Serial.print(cm2);
-  Serial.print("cm");
-  Serial.println();
-  */
   delay(50);
 #endif
 
@@ -156,41 +128,27 @@ void loop() {
 }
 
 long smooth1(int duration) { /* function smooth */
-  ////Perform average on sensor readings
   long average1;
-  // subtract the last reading:
   total1 = total1 - readings1[readIndex1];
-  // read the sensor:
   readings1[readIndex1] = duration;
-  // add value to total:
   total1 = total1 + readings1[readIndex1];
-  // handle index
   readIndex1 = readIndex1 + 1;
   if (readIndex1 >= numReadings) {
     readIndex1 = 0;
   }
-  // calculate the average:
   average1 = total1 / numReadings;
-
   return average1;
 }
 
 long smooth2(int duration) { /* function smooth */
-  ////Perform average on sensor readings
   long average2;
-  // subtract the last reading:
   total2 = total2 - readings2[readIndex2];
-  // read the sensor:
   readings2[readIndex2] = duration;
-  // add value to total:
   total2 = total2 + readings2[readIndex2];
-  // handle index
   readIndex2 = readIndex2 + 1;
   if (readIndex2 >= numReadings) {
     readIndex2 = 0;
   }
-  // calculate the average:
   average2 = total2 / numReadings;
-
   return average2;
 }
