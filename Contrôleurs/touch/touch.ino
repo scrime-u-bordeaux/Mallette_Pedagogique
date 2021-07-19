@@ -6,16 +6,9 @@ int midiCC[10] = {0};
 
 void setup() {
   Serial.begin(9600);
-  pinMode(0, INPUT);
-  pinMode(1, INPUT);
-  pinMode(3, INPUT);
-  pinMode(4, INPUT);
-  pinMode(15, INPUT);
-  pinMode(16, INPUT);
-  pinMode(17, INPUT);
-  pinMode(18, INPUT);
-  pinMode(19, INPUT);
-  pinMode(22, INPUT);
+  for (int i = 0; i < 10; i++) {
+    pinMode(pin[i],INPUT);
+  }
   calibration();
 }
 
@@ -28,12 +21,12 @@ void loop() {
   for (int i = 0; i < 10; i++) {
     midiCC[i] = (touch[i] - 1.1 * calib[i]) * 255 / calib[i];
     midiCC[i] = constrain( midiCC[i], 0, 127);
-    usbMIDI.sendControlChange(101 + i, midiCC[i], 1); 
+    usbMIDI.sendControlChange(101 + i, midiCC[i], 1);
     Serial.print(midiCC[i]);
     Serial.print("\t");
   }
   Serial.println();
-  
+
   delay(20);
 }
 
