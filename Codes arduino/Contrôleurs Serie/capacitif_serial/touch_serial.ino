@@ -70,6 +70,9 @@ void loop() {
       if (Type == 8) { // Note Off
         MIDI.sendNoteOff(numero, velocite, channel);
       }
+      if (Type == 14) { // Pitch Bend
+        usbMIDI.sendPitchBend((numero+velocite*128)-8192, channel);
+      }
     }
   }
 
