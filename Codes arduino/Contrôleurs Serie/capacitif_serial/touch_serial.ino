@@ -10,6 +10,9 @@ int midiCC[10] = {0};
 
 Bounce rst = Bounce(8, 10);
 
+unsigned long previousMillis = 0;
+const long interval = 40;
+
 void setup() {
   //Serial.begin(9600);
   Serial2.begin(31250);
@@ -18,38 +21,60 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, HIGH);
   for (int i = 0; i < 10; i++) {
-    pinMode(pin[i],INPUT);
+    pinMode(pin[i], INPUT);
   }
   //Serial.println("Calibration...");
   calibration();
-  delay(5000);
-}
-
-bool delai(){
-  delay(5000);
-  return true;
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, HIGH);
+  //delay(5000);
 }
 
 void loop() {
-  rst.update();
-  for (int i = 0; i < 10; i++) {
-    touch[i] = touchRead(pin[i]);
-    touch[i] = touch[i] * 0.9 + lastTouch[i] * 0.1;
-    lastTouch[i] = touch[i];
-  }
-  for (int i = 0; i < 10; i++) {
-    midiCC[i] = (touch[i] - 1.1 * calib[i]) * 512 / calib[i];
-    midiCC[i] = constrain( midiCC[i], 0, 127);
-    MIDI.sendControlChange(101 + i, midiCC[i], 3);
-    //Serial.print(midiCC[i]);
-    //Serial.print("\t");
-  }
-  //Serial.println();
+  unsigned long currentMillis = millis();
 
-  if(rst.fallingEdge()){
-    //Serial.println("Calibration...");
-    calibration();
-    delay(5000);
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+    rst.update();
+    for (int i = 0; i < 10; i++) {
+      touch[i] = touchRead(pin[i]);
+      touch[i] = touch[i] * 0.9 + lastTouch[i] * 0.1;
+      lastTouch[i] = touch[i];
+    }
+    for (int i = 0; i < 10; i++) {
+      midiCC[i] = (touch[i] - 1.1 * calib[i]) * 512 / calib[i];
+      midiCC[i] = constrain( midiCC[i], 0, 127);
+      MIDI.sendControlChange(101 + i, midiCC[i], 3);
+      //Serial.print(midiCC[i]);
+      //Serial.print("\t");
+    }
+    //Serial.println();
+
+    if (rst.fallingEdge()) {
+      //Serial.println("Calibration...");
+      calibration();
+      digitalWrite(LED_BUILTIN, LOW);
+      delay(1000);
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(1000);
+      digitalWrite(LED_BUILTIN, LOW);
+      delay(1000);
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(1000);
+      digitalWrite(LED_BUILTIN, LOW);
+      delay(1000);
+      digitalWrite(LED_BUILTIN, HIGH);
+      //delay(5000);
+    }
   }
 
   if (Serial2.available() >= 3) {
@@ -70,13 +95,8 @@ void loop() {
       if (Type == 8) { // Note Off
         MIDI.sendNoteOff(numero, velocite, channel);
       }
-      if (Type == 14) { // Pitch Bend
-        usbMIDI.sendPitchBend((numero+velocite*128)-8192, channel);
-      }
     }
   }
-
-  delay(20);
 }
 
 void calibration() {
