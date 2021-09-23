@@ -59,15 +59,16 @@ void setup() {
   }
   pinMode(22, INPUT_PULLUP);
   pinMode(23, INPUT_PULLUP);
+  analogReadResolution(14);
 }
 
 void loop() {
   maj();
 
-  //bend = analogRead(A0);
-//  bend = map(bend, 40, 1000, 0, 4095);
-//  bend = constrain(bend, 0, 4095);
-  MIDI.sendPitchBend(analogRead(A0)<<4, 5);
+  bend = analogRead(A0);
+//  bend = map(bend, 0, 16383, -8192, 8191);
+//  bend = constrain(bend, -8192, 8191);
+  MIDI.sendPitchBend(bend, 5);
   //Serial.println(bend);
 
   if (b00.fallingEdge()) {
