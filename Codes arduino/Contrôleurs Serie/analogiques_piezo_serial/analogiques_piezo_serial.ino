@@ -9,7 +9,7 @@ uint16_t valMSB[9] = {0};
 uint16_t valLSB[9] = {0};
 uint16_t lastMSB[9] = {0};
 unsigned long previousMillis = 0;
-const long interval = 20;
+const long interval = 40;
 
 void setup() {
   //Serial.begin(115200);
@@ -44,33 +44,28 @@ void loop() {
       }
       lastMSB[i] = valMSB[i];
     }
-
-    if (Serial1.available() >= 3) {
-      byte type_channel = Serial1.read();
-      if (type_channel >= 127) {
-        int numero = Serial1.read();
-        int velocite = Serial1.read();
-        int Type = type_channel >> 4;
-        int channel = type_channel & B00001111 ;
-        channel = channel + 1;
-        //Serial.println(String("Type: ") + Type + ", Channel = " + channel + ", Numero = " + numero + ", Vélocité = " + velocite);
-        if (Type == 11) { // Control Change
-          MIDI.sendControlChange(numero, velocite, channel);
-        }
-        if (Type == 9) { // Note On
-          MIDI.sendNoteOn(numero, velocite, channel);
-        }
-        if (Type == 8) { // Note Off
-          MIDI.sendNoteOff(numero, velocite, channel);
-        }
-        if (Type == 14) { // Pitch Bend
-        usbMIDI.sendPitchBend((numero+velocite*128)-8192, channel);
-        }
-      }
-    }
-
   }
 
+  if (Serial1.available() >= 3) {
+    byte type_channel = Serial1.read();
+    if (type_channel >= 127) {
+      int numero = Serial1.read();
+      int velocite = Serial1.read();
+      int Type = type_channel >> 4;
+      int channel = type_channel & B00001111 ;
+      channel = channel + 1;
+      //Serial.println(String("Type: ") + Type + ", Channel = " + channel + ", Numero = " + numero + ", Vélocité = " + velocite);
+      if (Type == 11) { // Control Change
+        MIDI.sendControlChange(numero, velocite, channel);
+      }
+      if (Type == 9) { // Note On
+        MIDI.sendNoteOn(numero, velocite, channel);
+      }
+      if (Type == 8) { // Note Off
+        MIDI.sendNoteOff(numero, velocite, channel);
+      }
+    }
+  }
 
   //#ifdef DEBUG
   //  for (int i = 0; i < 9; i++) {
