@@ -84,7 +84,7 @@ void loop() {
     //Serial.println(velocite[0]);
     MIDI.sendNoteOn(60, velocite[0], 5);
   }
-  if (b00.fallingEdge()) {
+  if (b01.fallingEdge()) {
     MIDI.sendNoteOff(60, 0, 5);
   }
 
@@ -101,7 +101,7 @@ void loop() {
     //Serial.println(velocite[1]);
     MIDI.sendNoteOn(61, velocite[1], 5);
   }
-  if (b10.fallingEdge()) {
+  if (b11.fallingEdge()) {
     MIDI.sendNoteOff(61, 0, 5);
   }
 
@@ -119,7 +119,7 @@ void loop() {
     //Serial.println(velocite[2]);
     MIDI.sendNoteOn(62, velocite[2], 5);
   }
-  if (b20.fallingEdge()) {
+  if (b21.fallingEdge()) {
     MIDI.sendNoteOff(62, 0, 5);
   }
 
@@ -137,7 +137,7 @@ void loop() {
     //Serial.println(velocite[3]);
     MIDI.sendNoteOn(63, velocite[3], 5);
   }
-  if (b30.fallingEdge()) {
+  if (b31.fallingEdge()) {
     MIDI.sendNoteOff(63, 0, 5);
   }
 
@@ -154,7 +154,7 @@ void loop() {
     //Serial.println(velocite[4]);
     MIDI.sendNoteOn(64, velocite[4], 5);
   }
-  if (b40.fallingEdge()) {
+  if (b41.fallingEdge()) {
     MIDI.sendNoteOff(64, 0, 5);
   }
 
@@ -171,7 +171,7 @@ void loop() {
     //Serial.println(velocite[5]);
     MIDI.sendNoteOn(65, velocite[5], 5);
   }
-  if (b50.fallingEdge()) {
+  if (b51.fallingEdge()) {
     MIDI.sendNoteOff(65, 0, 5);
   }
 
@@ -188,7 +188,7 @@ void loop() {
     //Serial.println(velocite[6]);
     MIDI.sendNoteOn(66, velocite[6], 5);
   }
-  if (b60.fallingEdge()) {
+  if (b61.fallingEdge()) {
     MIDI.sendNoteOff(66, 0, 5);
   }
 
