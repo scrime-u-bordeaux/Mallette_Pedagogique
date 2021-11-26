@@ -1,5 +1,7 @@
-#include <MIDI.h>
+//Teensy3.6
 
+#include <MIDI.h>
+bool dataled;
 void setup() {
   Serial1.begin(31250);
   Serial2.begin(31250);
@@ -9,6 +11,8 @@ void setup() {
   //Serial.begin(115200);
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, HIGH);
+    pinMode(23, OUTPUT);
+    digitalWrite(23, dataled);
 }
 
 void loop() {
@@ -34,6 +38,8 @@ void loop() {
       if (Type == 14) { // Pitch Bend
         usbMIDI.sendPitchBend((numero+velocite*128)-8192, channel);
       }
+      dataled = !dataled;
+      digitalWrite(23, dataled);
     }
   }
 
@@ -58,6 +64,8 @@ void loop() {
       if (Type == 14) { // Pitch Bend
         usbMIDI.sendPitchBend((numero+velocite*128)-8192, channel);
       }
+      dataled = !dataled;
+      digitalWrite(23, dataled);
     }
   }
 
@@ -82,6 +90,8 @@ void loop() {
       if (Type == 14) { // Pitch Bend
         usbMIDI.sendPitchBend((numero+velocite*128)-8192, channel);
       }
+      dataled = !dataled;
+      digitalWrite(23, dataled);
     }
   }
 
@@ -106,6 +116,8 @@ void loop() {
       if (Type == 14) { // Pitch Bend
         usbMIDI.sendPitchBend((numero+velocite*128)-8192, channel);
       }
+      dataled = !dataled;
+      digitalWrite(23, dataled);
     }
   }
 
@@ -130,6 +142,8 @@ void loop() {
       if (Type == 14) { // Pitch Bend
         usbMIDI.sendPitchBend((numero+velocite*128)-8192, channel);
       }
+      dataled = !dataled;
+      digitalWrite(23, dataled);
     }
   }
 }
