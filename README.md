@@ -1,6 +1,8 @@
 # Mallette_Pedagogique
 dispositif pédagogique de sensibilisation aux pratiques instrumentales des musiques électroniques informatisées en partenariat avec le réseau CANOPE.
-
+  
+  &&&&&& TODO : recepteur ESP32 sur le "bus" general pour les controleurs sans fil &&&&&&
+  
 types controlleur :  
 - theremin ultrason : deux capteurs echo  
 - capteurs lumières  
