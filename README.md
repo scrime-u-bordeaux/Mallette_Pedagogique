@@ -4,7 +4,7 @@ dispositif pédagogique de sensibilisation aux pratiques instrumentales des musi
   &&&&&& TODO : recepteur ESP32 sur le "bus" general pour les controleurs sans fil &&&&&&  
   - 
   &&&&&& capteur photo interrupteur transmissif = bouton vélocité ! https://fr.farnell.com/c/capteurs-transducteurs/capteurs/photo-interrupteurs/photo-interrupteurs-transmissifs &&&&&  
-  
+  -  
   
 types controlleur :  
 - theremin ultrason : deux capteurs echo  
