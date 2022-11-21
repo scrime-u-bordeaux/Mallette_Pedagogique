@@ -1,7 +1,10 @@
 # Mallette_Pedagogique
 dispositif pédagogique de sensibilisation aux pratiques instrumentales des musiques électroniques informatisées en partenariat avec le réseau CANOPE.
   
-  &&&&&& TODO : recepteur ESP32 sur le "bus" general pour les controleurs sans fil &&&&&&
+  &&&&&& TODO : recepteur ESP32 sur le "bus" general pour les controleurs sans fil &&&&&&  
+  - 
+  &&&&&& capteur photo interrupteur transmissif = bouton vélocité ! https://fr.farnell.com/c/capteurs-transducteurs/capteurs/photo-interrupteurs/photo-interrupteurs-transmissifs &&&&&  
+  
   
 types controlleur :  
 - theremin ultrason : deux capteurs echo  
