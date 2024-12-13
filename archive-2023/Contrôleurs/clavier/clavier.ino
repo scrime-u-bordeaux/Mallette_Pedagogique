@@ -1,0 +1,199 @@
+#include <Bounce.h>
+
+int b0[7] = {22, 0, 2, 4, 6, 8, 10};
+int b1[7] = {23, 1, 3, 5, 7, 9, 11};
+
+int lecture[2] = {0};
+int bend[2] = {0};
+int lastbend[2] = {0};
+
+Bounce b00 = Bounce(b0[0], 10);
+Bounce b01 = Bounce(b1[0], 10);
+Bounce b10 = Bounce(b0[1], 10);
+Bounce b11 = Bounce(b1[1], 10);
+Bounce b20 = Bounce(b0[2], 10);
+Bounce b21 = Bounce(b1[2], 10);
+Bounce b30 = Bounce(b0[3], 10);
+Bounce b31 = Bounce(b1[3], 10);
+Bounce b40 = Bounce(b0[4], 10);
+Bounce b41 = Bounce(b1[4], 10);
+Bounce b50 = Bounce(b0[5], 10);
+Bounce b51 = Bounce(b1[5], 10);
+Bounce b60 = Bounce(b0[6], 10);
+Bounce b61 = Bounce(b1[6], 10);
+
+int flags[7] = {0};
+int time1[7] = {0};
+int velocite[7] = {0};
+int top = 40000;
+int bot = 1000;
+
+void maj() {
+  b00.update();
+  b01.update();
+  b10.update();
+  b11.update();
+  b20.update();
+  b21.update();
+  b30.update();
+  b31.update();
+  b40.update();
+  b41.update();
+  b50.update();
+  b51.update();
+  b60.update();
+  b61.update();
+}
+
+
+void setup() {
+  Serial.begin(115200);
+  for (int i = 0; i < 12; i++) {
+    pinMode(i, INPUT_PULLUP);
+  }
+  pinMode(22, INPUT_PULLUP);
+  pinMode(23, INPUT_PULLUP);
+}
+
+void loop() {
+  maj();
+
+  lecture[0] = analogRead(A0);
+  bend[0] = 0.7 * lecture[0] + 0.3 * lastbend[0];
+  bend[0] = map(bend[0], 50, 250, 0, 127);
+  bend[0] = constrain(bend[0], 0, 127);
+  lastbend[0] = bend[0];
+  Serial.println(bend[0]);
+  usbMIDI.sendControlChange(58, bend[0], 1);
+
+  lecture[1] = analogRead(A1);
+  //Serial.println(analogRead(A1));
+  bend[1] = 0.7 * lecture[1] + 0.3 * lastbend[1];
+  bend[1] = map(bend[1], 200, 900, 0, 127);
+  bend[1] = constrain(bend[1], 0, 127);
+  lastbend[1] = bend[1];
+  //Serial.println(bend[1]);
+  usbMIDI.sendControlChange(59, bend[1], 1);
+
+  if (b00.fallingEdge()) {
+    flags[0] = 1;
+    time1[0] = micros();
+  }
+  if (b01.fallingEdge() && flags[0] == 1) {
+    flags[0] = 0;
+    velocite[0] = micros() - time1[0];
+    velocite[0] = map(velocite[0], bot, top, 0, 127);
+    velocite[0] = 127 - velocite[0];
+    velocite[0] = constrain(velocite[0], 5, 127);
+    Serial.println(velocite[0]);
+    usbMIDI.sendNoteOn(60, velocite[0], 1);
+  }
+  if (b00.fallingEdge()) {
+    usbMIDI.sendNoteOff(60, velocite[0], 1);
+  }
+
+  if (b10.fallingEdge()) {
+    flags[1] = 1;
+    time1[1] = micros();
+  }
+  if (b11.fallingEdge() && flags[1] == 1) {
+    flags[1] = 0;
+    velocite[1] = micros() - time1[1];
+    velocite[1] = map(velocite[1], bot, top, 0, 127);
+    velocite[1] = 127 - velocite[1];
+    velocite[1] = constrain(velocite[1], 5, 127);
+    Serial.println(velocite[1]);
+    usbMIDI.sendNoteOn(61, velocite[1], 1);
+  }
+  if (b10.fallingEdge()) {
+    usbMIDI.sendNoteOff(61, velocite[1], 1);
+  }
+
+
+  if (b20.fallingEdge()) {
+    flags[2] = 1;
+    time1[2] = micros();
+  }
+  if (b21.fallingEdge() && flags[2] == 1) {
+    flags[2] = 0;
+    velocite[2] = micros() - time1[2];
+    velocite[2] = map(velocite[2], bot, top, 0, 127);
+    velocite[2] = 127 - velocite[2];
+    velocite[2] = constrain(velocite[2], 5, 127);
+    Serial.println(velocite[2]);
+    usbMIDI.sendNoteOn(62, velocite[2], 1);
+  }
+  if (b20.fallingEdge()) {
+    usbMIDI.sendNoteOff(62, velocite[2], 1);
+  }
+
+
+  if (b30.fallingEdge()) {
+    flags[3] = 1;
+    time1[3] = micros();
+  }
+  if (b31.fallingEdge() && flags[3] == 1) {
+    flags[3] = 0;
+    velocite[3] = micros() - time1[3];
+    velocite[3] = map(velocite[3], bot, top, 0, 127);
+    velocite[3] = 127 - velocite[3];
+    velocite[3] = constrain(velocite[3], 5, 127);
+    Serial.println(velocite[3]);
+    usbMIDI.sendNoteOn(63, velocite[3], 1);
+  }
+  if (b30.fallingEdge()) {
+    usbMIDI.sendNoteOff(63, velocite[3], 1);
+  }
+
+  if (b40.fallingEdge()) {
+    flags[4] = 1;
+    time1[4] = micros();
+  }
+  if (b41.fallingEdge() && flags[4] == 1) {
+    flags[4] = 0;
+    velocite[4] = micros() - time1[4];
+    velocite[4] = map(velocite[4], bot, top, 0, 127);
+    velocite[4] = 127 - velocite[4];
+    velocite[4] = constrain(velocite[4], 5, 127);
+    Serial.println(velocite[4]);
+    usbMIDI.sendNoteOn(64, velocite[4], 1);
+  }
+  if (b40.fallingEdge()) {
+    usbMIDI.sendNoteOff(64, velocite[4], 1);
+  }
+
+  if (b50.fallingEdge()) {
+    flags[5] = 1;
+    time1[5] = micros();
+  }
+  if (b51.fallingEdge() && flags[5] == 1) {
+    flags[5] = 0;
+    velocite[5] = micros() - time1[5];
+    velocite[5] = map(velocite[5], bot, top, 0, 127);
+    velocite[5] = 127 - velocite[5];
+    velocite[5] = constrain(velocite[5], 5, 127);
+    Serial.println(velocite[5]);
+    usbMIDI.sendNoteOn(65, velocite[5], 1);
+  }
+  if (b50.fallingEdge()) {
+    usbMIDI.sendNoteOff(65, velocite[5], 1);
+  }
+
+  if (b60.fallingEdge()) {
+    flags[6] = 1;
+    time1[6] = micros();
+  }
+  if (b61.fallingEdge() && flags[6] == 1) {
+    flags[6] = 0;
+    velocite[6] = micros() - time1[6];
+    velocite[6] = map(velocite[6], bot, top, 0, 127);
+    velocite[6] = 127 - velocite[6];
+    velocite[6] = constrain(velocite[6], 5, 127);
+    Serial.println(velocite[6]);
+    usbMIDI.sendNoteOn(66, velocite[6], 1);
+  }
+  if (b60.fallingEdge()) {
+    usbMIDI.sendNoteOff(66, velocite[6], 1);
+  }
+
+}
