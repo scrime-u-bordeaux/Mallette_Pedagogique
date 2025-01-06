@@ -27,3 +27,12 @@ Instructions pour l'installation de Pure Data et des dépendances nécessaires �
     * rechercher et installer les librairies suivantes : `jl`, `hcs`, `hidraw` et `freeverb~`
 
 Lancer le serveur jack et sélectionner jack comme driver audio depuis pure data : le patch devrait à présent fonctionner !
+
+### Sous Linux :
+
+compiler hidraw :
+* `apt install libudev-dev`
+* `make`
+
+autoriser pd à accéder aux périphériques hidraw :
+* to be done :(

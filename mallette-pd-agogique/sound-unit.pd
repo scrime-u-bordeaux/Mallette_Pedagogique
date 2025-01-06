@@ -465,6 +465,7 @@
 #X obj 967 555 + 100;
 #X text 453 99 |;
 #X obj 461 205 clip -70 12;
+#X obj 96 435 t f f;
 #X connect 0 0 21 0;
 #X connect 1 0 3 1;
 #X connect 1 0 25 1;
@@ -540,7 +541,7 @@
 #X connect 62 0 59 0;
 #X connect 63 0 48 0;
 #X connect 64 0 24 0;
-#X connect 69 0 40 0;
+#X connect 69 0 107 0;
 #X connect 71 0 104 0;
 #X connect 72 0 49 1;
 #X connect 73 0 46 0;
@@ -564,4 +565,5 @@
 #X connect 103 0 2 0;
 #X connect 104 0 103 0;
 #X connect 106 0 102 0;
+#X connect 107 0 40 0;
 #X coords 0 -1 1 1 470 93 2 30 30;
