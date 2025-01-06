@@ -1,4 +1,4 @@
-#N canvas 270 98 923 646 12;
+#N canvas 308 49 923 646 12;
 #X obj 59 131 vradio 19 1 0 5 gamepad-assign \$0-gamepad-assign-i empty 0 -10 0 12 #fcfcfc #000000 #000000 0;
 #X text 80 131 use gamepads;
 #X text 80 149 assign #1;
@@ -34,7 +34,7 @@
 #X connect 4 0 7 0;
 #X connect 5 0 6 0;
 #X restore 59 73 pd list-devices;
-#N canvas 960 490 560 443 mapping 0;
+#N canvas 806 262 560 443 mapping 1;
 #X obj 35 93 r joystick-1;
 #X obj 127 93 r joystick-2;
 #X obj 39 208 r gamepad-1;
@@ -52,7 +52,6 @@
 #X obj 39 345 s player3-controls;
 #X obj 176 345 s player4-controls;
 #X obj 35 121 print j1;
-#X connect 0 0 16 0;
 #X connect 2 0 6 0;
 #X connect 6 0 5 0;
 #X connect 7 0 9 0;
@@ -112,6 +111,10 @@
 #X obj 185 293 ./controllers/logitech-extreme-3d-hidraw 1;
 #X obj 185 342 ./controllers/logitech-extreme-3d-hidraw 2;
 #X obj 185 391 ./controllers/logitech-extreme-3d-hidraw 3;
+#X obj 211 453 bng 20 250 50 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000;
+#X obj 213 478 openpanel 1;
 #X connect 13 0 18 0;
 #X connect 15 0 14 0;
 #X connect 16 0 15 0;
+#X connect 34 0 35 0;
+#X connect 35 0 14 0;
