@@ -35,4 +35,10 @@ compiler hidraw :
 * `make`
 
 autoriser pd à accéder aux périphériques hidraw :
-* to be done :(
+* create `/etc/udev/rules.d/71-pd-hidraw.rules`
+* add the following line : `KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0664", GROUP="plugdev"`
+* update permissions without rebooting (or reboot to update them automatically) :
+  * `sudo udevadm control --reload-rules`
+  * `sudo service udev restart`
+  * `sudo udevadm trigger`
+NB : the current user must belong to the plugdev group for this to work
