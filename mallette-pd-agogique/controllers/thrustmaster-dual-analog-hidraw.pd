@@ -1,4 +1,4 @@
-#N canvas 542 104 683 504 12;
+#N canvas 388 85 909 591 12;
 #X obj 241 450 r \$0-controls;
 #X obj 259 475 r \$0-id;
 #X obj 241 525 s;
@@ -20,11 +20,11 @@
 #X obj 428 299 sel 0;
 #X obj 302 245 r \$0-connected;
 #X obj 302 142 r \$0-connected;
-#X obj 30 30 cnv 19 82 45 empty empty Gamepad 8 12 0 12 #e0e0e0 #404040 0;
-#X obj 52 53 tgl 19 0 \$0-activity-o \$0-activity-i empty 0 -10 0 12 #ff0000 #ff0000 #000000 0 1;
-#X obj 33 53 tgl 19 0 \$0-connect-o \$0-connect-i empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
-#X obj 71 53 cnv 19 19 19 empty empty  6 10 0 12 #000000 #404040 0;
-#X obj 72 54 cnv 10 17 17 empty \$0-label-i empty 5 9 0 12 #e0e0e0 #404040 0;
+#X obj 30 30 cnv 19 82 40 empty empty Gamepad 4 9 0 12 #e0e0e0 #404040 0;
+#X obj 52 48 tgl 19 0 \$0-activity-o \$0-activity-i empty 0 -10 0 12 #ff0000 #ff0000 #000000 0 1;
+#X obj 33 48 tgl 19 0 \$0-connect-o \$0-connect-i empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X obj 71 48 cnv 19 19 19 empty empty  6 10 0 12 #000000 #404040 0;
+#X obj 72 49 cnv 10 17 17 empty \$0-label-i empty 5 9 0 12 #e0e0e0 #404040 0;
 #X obj 259 500 makefilename gamepad-%i;
 #X obj 31 104 r \$0-connect-o;
 #X obj 31 511 s \$0-controls;
@@ -59,8 +59,8 @@
 #X obj 134 511 s \$0-id;
 #X obj 31 387 t a a;
 #X obj 120 310 r gamepad-assign;
-#X obj 90 53 bng 19 250 50 0 \$0-open-ui-o \$0-open-ui-i empty 0 -10 0 12 #fcfcfc #000000 #000000;
-#X text 91 53 ui;
+#X obj 90 48 bng 19 250 50 0 \$0-open-ui-o \$0-open-ui-i empty 0 -10 0 12 #fcfcfc #000000 #000000;
+#X text 91 48 ui;
 #X obj 475 480 makefilename pd-%i-ui;
 #X msg 475 503 \; \$1 vis 1;
 #X obj 475 434 r \$0-open-ui-o;
@@ -583,4 +583,4 @@
 #X connect 59 0 56 0;
 #X connect 59 1 55 0;
 #X connect 60 0 59 0;
-#X coords 0 -1 1 1 82 45 2 30 30;
+#X coords 0 -1 1 1 82 40 2 30 30;

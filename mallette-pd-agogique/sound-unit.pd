@@ -258,7 +258,7 @@
 #X msg 1003 261 1;
 #X msg 970 261 0;
 #X obj 280 265 route dist angle;
-#X obj 54 158 inlet control;
+#X obj 54 157 inlet control;
 #X obj 190 564 text get \$2;
 #X obj 149 467 text size \$2;
 #X obj 280 313 s \$0-filterctl-dist;
@@ -464,15 +464,15 @@
 #X obj 144 708 s \$0-to-tabread;
 #X obj 761 396 r \$0-to-tabread;
 #X obj 336 242 s \$0-reverbe-o;
-#X obj 30 30 cnv 19 470 93 empty empty \$1 415 12 0 12 #e0e0e0 #404040 0;
-#X obj 33 75 tgl 45 0 \$0-play-o \$0-play-i empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
-#X floatatom 33 33 3 0 0 1 sound \$0-soundindex-i \$0-soundindex-o 12;
-#X symbolatom 33 54 66 0 0 0 - \$0-soundfilename-i \$0-soundfilename-o 0;
-#X floatatom 81 75 5 0 0 0 - \$0-pitch-i \$0-pitch-o 36;
-#X obj 247 75 hsl 248 21 0 1 0 0 \$0-panning-o \$0-panning-i empty -2 -10 0 12 #fcfcfc #000000 #000000 0 0;
-#X obj 247 99 hsl 248 21 -70 12 0 0 \$0-volume-o \$0-volume-i empty -2 -10 0 12 #fcfcfc #000000 #000000 0 0;
-#X obj 196 75 tgl 45 0 \$0-reverse-o \$0-reverse-i empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
-#X text 367 75 |;
+#X obj 30 30 cnv 19 402 77 empty empty \$1 350 12 0 12 #e0e0e0 #404040 0;
+#X obj 32 72 tgl 33 0 \$0-play-o \$0-play-i empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X floatatom 32 32 3 0 0 1 sound \$0-soundindex-i \$0-soundindex-o 12;
+#X symbolatom 32 53 66 0 0 0 - \$0-soundfilename-i \$0-soundfilename-o 10;
+#X floatatom 67 72 5 0 0 0 - \$0-pitch-i \$0-pitch-o 24;
+#X obj 179 72 hsl 249 16 0 1 0 0 \$0-panning-o \$0-panning-i empty -2 -10 0 12 #fcfcfc #000000 #000000 0 0;
+#X obj 179 88 hsl 249 17 -70 12 0 0 \$0-volume-o \$0-volume-i empty -2 -10 0 12 #fcfcfc #000000 #000000 0 0;
+#X obj 141 72 tgl 33 0 \$0-reverse-o \$0-reverse-i empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X text 298 68 |;
 #X obj 264 474 loadbang;
 #X msg 264 498 1;
 #X obj 264 522 s \$0-soundindex-i;
@@ -487,7 +487,7 @@
 #X obj 461 228 s \$0-volume-i;
 #X obj 993 442 dbtorms;
 #X obj 993 419 + 100;
-#X text 453 99 |;
+#X text 385 85 |;
 #X obj 461 205 clip -70 12;
 #X obj 96 435 t f f;
 #X obj 747 433 hip~ 10;
@@ -592,4 +592,4 @@
 #X connect 106 0 39 0;
 #X connect 107 0 5 0;
 #X connect 108 0 48 0;
-#X coords 0 -1 1 1 470 93 2 30 30;
+#X coords 0 -1 1 1 402 77 2 30 30;
