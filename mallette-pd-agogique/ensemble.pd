@@ -5,8 +5,8 @@
 #X text 378 242 assign #2;
 #X text 378 261 assign #3;
 #X text 378 280 assign #4;
-#X text 291 107 < refresh devices;
-#X obj 264 105 bng 19 250 50 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000;
+#X text 291 97 < refresh devices;
+#X obj 264 95 bng 19 250 50 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000;
 #N canvas 717 566 393 278 list-devices 1;
 #X obj 68 73 bng 19 250 50 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000;
 #X obj 68 149 bng 19 250 50 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000;
@@ -23,7 +23,7 @@
 #X connect 4 0 5 0;
 #X connect 7 0 0 0;
 #X connect 7 1 1 0;
-#X restore 264 130 pd list-devices;
+#X restore 264 120 pd list-devices;
 #N canvas 992 249 560 443 mapping 0;
 #X obj 32 20 r joystick-1;
 #X obj 124 20 r joystick-2;
@@ -136,7 +136,7 @@
 #X obj 265 248 ./controllers/thrustmaster-dual-analog-hidraw 1;
 #X obj 265 291 ./controllers/thrustmaster-dual-analog-hidraw 2;
 #X obj 265 334 ./controllers/thrustmaster-dual-analog-hidraw 3;
-#X obj 265 153 tgl 19 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X obj 265 143 tgl 19 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
 #N canvas 458 217 476 435 record 0;
 #X msg 155 237 start;
 #X msg 162 265 stop;
@@ -475,8 +475,8 @@
 #X connect 7 0 6 0;
 #X connect 8 0 7 0;
 #X connect 10 0 0 0;
-#X restore 265 178 pd get-set-dsp;
-#X text 290 155 < enable audio;
+#X restore 265 168 pd get-set-dsp;
+#X text 290 145 < enable audio;
 #X text 882 625 mallette-pd-agogique v0.2.0;
 #X text 840 643 joseph larralde © SCRIME 2024-2025;
 #X obj 30 13 cnv 15 160 45 empty empty project 4 11 0 14 #e0e0e0 #404040 0;
