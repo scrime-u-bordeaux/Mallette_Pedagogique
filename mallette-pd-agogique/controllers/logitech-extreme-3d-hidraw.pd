@@ -21,10 +21,10 @@
 #X obj 330 331 r \$0-connected;
 #X obj 330 228 r \$0-connected;
 #X obj 30 30 cnv 19 82 45 empty empty Joystick 8 12 0 12 #e0e0e0 #404040 0;
-#X obj 52 53 tgl 19 0 \$0-activity-o \$0-activity-i empty 0 -10 0 12 #00ff00 #00ff00 #000000 0 1;
+#X obj 52 53 tgl 19 0 \$0-activity-o \$0-activity-i empty 0 -10 0 12 #ff0000 #ff0000 #000000 0 1;
 #X obj 33 53 tgl 19 0 \$0-connect-o \$0-connect-i empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
 #X obj 71 53 cnv 19 19 19 empty empty empty 6 10 0 12 #000000 #404040 0;
-#X obj 72 54 cnv 10 17 17 empty \$0-label-i 1 5 9 0 12 #e0e0e0 #404040 0;
+#X obj 72 54 cnv 10 17 17 empty \$0-label-i empty 5 9 0 12 #e0e0e0 #404040 0;
 #X obj 31 556 s \$0-controls;
 #X obj 31 468 spigot;
 #X obj 81 468 spigot;
@@ -99,11 +99,11 @@
 #X connect 14 0 5 0;
 #X connect 15 0 9 0;
 #X connect 16 0 15 0;
-#X restore 229 95 pd device-id-from-list-and-instance-nb;
+#X restore 199 70 pd device-id-from-list-and-instance-nb;
 #X obj 253 556 makefilename joystick-%i;
 #X obj 120 355 r joystick-assign;
 #X obj 459 513 f \$0;
-#N canvas 1 38 216 374 \$0-ui 1;
+#N canvas 1 38 216 374 \$0-ui 0;
 #X obj 11 11 cnv 19 190 350 empty empty empty 20 12 0 12 #404040 #404040 0;
 #X obj 143 18 tgl 26 0 \$0-trigger-o \$0-trigger-i empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
 #X obj 83 76 tgl 26 0 \$0-btn2-o \$0-btn2-i empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
@@ -130,8 +130,8 @@
 #X obj 21 294 tgl 26 0 \$0-btn9-o \$0-btn9-i empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
 #X obj 21 326 tgl 26 0 \$0-btn11-o \$0-btn11-i empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
 #X restore 551 565 pd \$0-ui;
-#X obj 229 71 r extreme3D-paths;
-#X obj 229 119 s \$0-device-path;
+#X obj 199 46 r extreme3D-paths;
+#X obj 199 94 s \$0-device-path;
 #X obj 31 104 r \$0-connect-o;
 #X obj 31 130 sel 0 1;
 #X msg 31 192 close;
